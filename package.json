@@ -1,0 +1,40 @@
+{
+  "private": true,
+  "scripts": {
+    "start": "set PORT=9000 && roadhog server",
+    "build": "roadhog build",
+    "lint": "eslint --ext .js src test",
+    "lint:fix": "eslint --fix --ext .js src test",
+    "precommit": "npm run lint"
+  },
+  "dependencies": {
+    "@ckeditor/ckeditor5-build-classic": "^11.1.1",
+    "@ckeditor/ckeditor5-build-decoupled-document": "^11.1.1",
+    "@ckeditor/ckeditor5-react": "^1.0.0",
+    "ant-design-pro": "^2.1.0",
+    "antd": "^3.10.2",
+    "axios": "^0.18.0",
+    "babel-plugin-import": "^1.10.0",
+    "dva": "^2.4.0",
+    "moment": "^2.22.2",
+    "numeral": "^2.0.6",
+    "qs": "^6.5.2",
+    "react": "^16.2.0",
+    "react-avatar-editor": "^11.0.4",
+    "react-axios": "^2.0.1",
+    "react-dom": "^16.2.0"
+  },
+  "devDependencies": {
+    "babel-plugin-dva-hmr": "^0.3.2",
+    "eslint": "^4.14.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-umi": "^0.1.1",
+    "eslint-plugin-flowtype": "^2.34.1",
+    "eslint-plugin-import": "^2.6.0",
+    "eslint-plugin-jsx-a11y": "^5.1.1",
+    "eslint-plugin-react": "^7.1.0",
+    "husky": "^0.12.0",
+    "redbox-react": "^1.4.3",
+    "roadhog": "^2.0.0"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "user":[
+    {"key":"1","name":"John Brown","status":"admin","email":"1292198069@qq.com"},
+    {"key":"2","name":"Joe Black","status":"user","email":"qit0510@163.com"},
+    {"key":"3","name":"Jim Green","status":"super_user","email":"1292198069@163.com"},
+    {"key":"4","name":"Jim Red","status":"admin","email":"qit0510@163.com"}
+  ]
+}

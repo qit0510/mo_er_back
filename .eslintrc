@@ -1,0 +1,10 @@
+{
+  "extends": "umi",
+  "rules": {
+    "semi": [1, "always"],
+    "indent": [1, 2],
+    "quotes": [1, "single"]
+  }
+}
+
+

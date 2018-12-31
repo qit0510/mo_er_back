@@ -1,0 +1,9 @@
+{
+  "tags":[
+    {"key":1,"name":"java","remark":"java导致秃头"},
+    {"key":2,"name":"javaScript","remark":"javaScript导致肾衰竭"},
+    {"key":3,"name":"Php","remark":"Php是世界最好的语言"},
+    {"key":4,"name":"C","remark":"C语言导致傻B"},
+    {"key":5,"name":"Go","remark":"治肾不含糖"}
+  ]
+}
