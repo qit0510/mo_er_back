@@ -43,6 +43,9 @@ export function loginOut() {
 export function queryArticle() {
   return request('/api/article');
 }
+export function queryMyArticle() {
+  return request('/api/getArticle');
+}
 export function initArticleEdit(id) {
   return request(`/api/initEdit/${id}`);
 }

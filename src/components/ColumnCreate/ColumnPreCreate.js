@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Form, Input, Button } from 'antd';
-
+import {connect} from 'dva'; 
 const FormItem = Form.Item;
 const formItemLayout = {
   labelCol: {
@@ -24,6 +24,9 @@ const tailFormItemLayout = {
     }
   }
 };
+@connect(({ column }) => ({
+}))
+
 class ColumnPreCreate extends Component {
   state = {
     confirmDirty: false,
@@ -46,8 +49,8 @@ class ColumnPreCreate extends Component {
           type: 'column/createPreColum',
           data: values
         });
-        const { onCreated } = this.props;
-        onCreated && onCreated();
+        // const { onCreated } = this.props;
+        // onCreated && onCreated();
       }
     });
   };

@@ -1,218 +1,74 @@
 import React, { PureComponent } from 'react';
-import {
-  Tabs, Icon, Tag, Card,
-} from 'antd';
+import {Tabs, Icon, Tag, Card} from 'antd';
+import {connect} from 'dva';
 import Styles from './PresonalDynamic.less';
+
 
 const TabPane = Tabs.TabPane;
 const { Meta } = Card;
+const color = ['red','magenta','volcano'];
+
+@connect(({article}) => ({
+  myArticle:article.myArticle
+}))
 export default class PresonalDynamic extends PureComponent {
+
+  componentDidMount(){
+    //article
+    this.props.dispatch({
+      type:'article/getMyArticle'
+    });
+  }
+  filterHTMLTag = (msg) => {
+    msg = msg.replace(/<\/?[^>]*>/g, ''); //去除HTML Tag
+    msg = msg.replace(/[|]*\n/, ''); //去除行尾空格
+    msg = msg.replace(/&npsp;/ig, ''); //去掉npsp
+    return msg;
+  }
   render() {
     return (
-      <Tabs defaultActiveKey="2">
+      <Tabs defaultActiveKey="1">
         <TabPane
-          tab={(
-            <span>
-              <Icon type="read" theme="outlined" />
-文章
-            </span>
-          )}
-          key="1"
-        >
+          tab={(<span> <Icon type="read" theme="outlined" />我发布的文章</span>)} key="1">
           <ul className={Styles.artisan}>
-            <li>
-              <h3 className={Styles.title}>Alipay</h3>
-              <p className={Styles.tag}>
-                <Tag color="magenta">magenta</Tag>
-                <Tag color="red">red</Tag>
-                <Tag color="volcano">volcano</Tag>
-              </p>
-              <div className={Styles.content}>
-                <p>
-                  段落示意：蚂蚁金服设计平台 ant.design，用最小的工作量，无缝接入蚂蚁金服生态，提供跨越设计与开发的体验解决方案。蚂蚁金服设计平台
-                  ant.design，用最小的工作量，无缝接入蚂蚁金服生态，提供跨越设计与开发的体验解决方案。
-                </p>
-              </div>
-              <div className={Styles.other}>
-                <ul>
-                  <li>
-                    <span><Icon type="star" theme="outlined" /></span>
-45
-                  </li>
-                  <li>
-                    <span><Icon type="like" theme="outlined" /></span>
-45
-                  </li>
-                  <li>
-                    <span><Icon type="message" theme="outlined" /></span>
-235
-                  </li>
-                </ul>
-              </div>
-              <div className={Styles.clr} />
-            </li>
-            <li>
-              <h3 className={Styles.title}>Alipay</h3>
-              <p className={Styles.tag}>
-                <Tag color="magenta">magenta</Tag>
-                <Tag color="red">red</Tag>
-                <Tag color="volcano">volcano</Tag>
-              </p>
-              <div className={Styles.content}>
-                <p>
-                  段落示意：蚂蚁金服设计平台 ant.design，用最小的工作量，无缝接入蚂蚁金服生态，提供跨越设计与开发的体验解决方案。蚂蚁金服设计平台
-                  ant.design，用最小的工作量，无缝接入蚂蚁金服生态，提供跨越设计与开发的体验解决方案。
-                </p>
-              </div>
-              <div className={Styles.other}>
-                <ul>
-                  <li>
-                    <span><Icon type="star" theme="outlined" /></span>
-45
-                  </li>
-                  <li>
-                    <span><Icon type="like" theme="outlined" /></span>
-45
-                  </li>
-                  <li>
-                    <span><Icon type="message" theme="outlined" /></span>
-235
-                  </li>
-                </ul>
-              </div>
-              <div className={Styles.clr} />
-            </li>
-            <li>
-              <h3>Alipay</h3>
-              <p>
-                <Tag color="magenta">magenta</Tag>
-                <Tag color="red">red</Tag>
-                <Tag color="volcano">volcano</Tag>
-              </p>
-              <div>
-                <p>
-                  段落示意：蚂蚁金服设计平台 ant.design，用最小的工作量，无缝接入蚂蚁金服生态，提供跨越设计与开发的体验解决方案。蚂蚁金服设计平台
-                  ant.design，用最小的工作量，无缝接入蚂蚁金服生态，提供跨越设计与开发的体验解决方案。
-                </p>
-              </div>
-              <div className={Styles.other}>
-                <ul>
-                  <li>
-                    <span><Icon type="star" theme="outlined" /></span>
-45
-                  </li>
-                  <li>
-                    <span><Icon type="like" theme="outlined" /></span>
-45
-                  </li>
-                  <li>
-                    <span><Icon type="message" theme="outlined" /></span>
-235
-                  </li>
-                </ul>
-              </div>
-              <div className={Styles.clr} />
-            </li>
-            <li>
-              <h3>Alipay</h3>
-              <p>
-                <Tag color="magenta">magenta</Tag>
-                <Tag color="red">red</Tag>
-                <Tag color="volcano">volcano</Tag>
-              </p>
-              <div>
-                <p>
-                  段落示意：蚂蚁金服设计平台 ant.design，用最小的工作量，无缝接入蚂蚁金服生态，提供跨越设计与开发的体验解决方案。蚂蚁金服设计平台
-                  ant.design，用最小的工作量，无缝接入蚂蚁金服生态，提供跨越设计与开发的体验解决方案。
-                </p>
-              </div>
-              <div className={Styles.other}>
-                <ul>
-                  <li>
-                    <span><Icon type="star" theme="outlined" /></span>
-45
-                  </li>
-                  <li>
-                    <span><Icon type="like" theme="outlined" /></span>
-45
-                  </li>
-                  <li>
-                    <span><Icon type="message" theme="outlined" /></span>
-235
-                  </li>
-                </ul>
-              </div>
-              <div className={Styles.clr} />
-            </li>
-            <li>
-              <h3>Alipay</h3>
-              <p>
-                <Tag color="magenta">magenta</Tag>
-                <Tag color="red">red</Tag>
-                <Tag color="volcano">volcano</Tag>
-              </p>
-              <div>
-                <p>
-                  段落示意：蚂蚁金服设计平台 ant.design，用最小的工作量，无缝接入蚂蚁金服生态，提供跨越设计与开发的体验解决方案。蚂蚁金服设计平台
-                  ant.design，用最小的工作量，无缝接入蚂蚁金服生态，提供跨越设计与开发的体验解决方案。
-                </p>
-              </div>
-              <div className={Styles.other}>
-                <ul>
-                  <li>
-                    <span><Icon type="star" theme="outlined" /></span>
-45
-                  </li>
-                  <li>
-                    <span><Icon type="like" theme="outlined" /></span>
-45
-                  </li>
-                  <li>
-                    <span><Icon type="message" theme="outlined" /></span>
-235
-                  </li>
-                </ul>
-              </div>
-              <div className={Styles.clr} />
-            </li>
-            <li>
-              <h3>Alipay</h3>
-              <p>
-                <Tag color="magenta">magenta</Tag>
-                <Tag color="red">red</Tag>
-                <Tag color="volcano">volcano</Tag>
-              </p>
-              <div>
-                <p>
-                  段落示意：蚂蚁金服设计平台 ant.design，用最小的工作量，无缝接入蚂蚁金服生态，提供跨越设计与开发的体验解决方案。蚂蚁金服设计平台
-                  ant.design，用最小的工作量，无缝接入蚂蚁金服生态，提供跨越设计与开发的体验解决方案。
-                </p>
-              </div>
-              <div className={Styles.other}>
-                <ul>
-                  <li>
-                    <span><Icon type="star" theme="outlined" /></span>
-45
-                  </li>
-                  <li>
-                    <span><Icon type="like" theme="outlined" /></span>
-45
-                  </li>
-                  <li>
-                    <span><Icon type="message" theme="outlined" /></span>
-235
-                  </li>
-                </ul>
-              </div>
-              <div className={Styles.clr} />
-            </li>
+            {
+              this.props.myArticle&&this.props.myArticle.map((item)=>(
+                <li key={item.id}>
+                  <h3 className={Styles.title}>{item.title}</h3>
+                  <div>
+                    {
+                      item.tags.map((item,index)=>(
+                        <Tag key={item.id} color={color[index]}>{item.title}</Tag>
+                      ))
+                    }
+                  </div>
+                  <div className={Styles.content}>
+                    {this.filterHTMLTag(item.content)}
+                  </div>
+                  <div className={Styles.other}>
+                    <ul>
+                      <li>
+                        <span><Icon type="like" theme="outlined" /></span>
+                        {item.up_votes_count}
+                      </li>
+                      <li>
+                        <span><Icon type="message" theme="outlined" /></span>
+                        {item.comments.length}
+                      </li>
+                    </ul>
+                  </div>
+                  <div className={Styles.clr} ></div>
+                </li>
+              ))
+            }
+        
           </ul>
         </TabPane>
         <TabPane
           tab={(
             <span>
               <Icon type="github" theme="outlined" />
-项目
+              我发布的项目
             </span>
           )}
           key="2"

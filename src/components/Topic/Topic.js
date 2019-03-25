@@ -10,6 +10,7 @@ const SubMenu = Menu.SubMenu;
 @connect(({header, topic}) => ({
   isDark: header.isDark,
   collapsed: topic.collapsed,
+  auth:header.auth
 }))
 
 export default class Topic extends PureComponent {
@@ -21,6 +22,7 @@ export default class Topic extends PureComponent {
   }
 
   render() {
+    console.log();
     return (
       <div className={Styles.topic}>
         <Button className={Styles.btn} type={this.props.isDark ? 'primary' : 'default'} onClick={this.toggleCollapsed}>
@@ -34,7 +36,20 @@ export default class Topic extends PureComponent {
           inlineCollapsed={this.props.collapsed}
         >
           {
-            routes.map(item => genMenu(item))
+            (this.props.auth)&&(
+              routes.map((item) => {  
+                if(this.props.auth.identity!==1){
+                  if(item.title!=='用户管理中心'&&item.title!=='栏目管理中心'&&item.title!=='文章管理中心'){
+                    return genMenu(item);
+                  }else{
+                    return 0;
+                  }
+                }else{
+                  return genMenu(item);
+                }
+                
+              })
+            )
           }
         </Menu>
       </div>

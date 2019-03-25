@@ -37,7 +37,7 @@ export default {
     },
     * initDynamic({payload}, {call, put}) {
       const res = yield call(getDynamic);
-      yield put({type: 'dynamic',data:res.data})
+      yield put({type: 'dynamic',data:res.data});
     },
     * register({payload, data}, {call, put}) {
       // eslint-disable-line
@@ -52,7 +52,8 @@ export default {
     * changeData({payload, data}, {call, put}) {
       // eslint-disable-line
       yield call(changeAuth, data);
-      // yield put({type: 'save', data: res.data.user});
+      yield put({type: 'save', data:data});
+      yield put(routerRedux.push('/personal/personal_core'));
     },
     * uLogin({payload, data}, {call, put}) {
       // eslint-disable-line
@@ -87,7 +88,7 @@ export default {
       return {
         ...state,
         dynamicData:data
-      }
+      };
     },
     changeSrc(state, {data}) {
       return {

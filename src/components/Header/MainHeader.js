@@ -92,7 +92,7 @@ export default class MainHeader extends PureComponent {
               </Drawer>
               <Popover placement="bottom" title={this.props.auth && this.props.auth.name} content={login()} trigger="click">
                 {/*console.log(this.props.auth)*/}
-                <span><img style={{width:30 , borderRadius:30}} src={this.props.auth.avatar} alt="图片"/></span>
+                <span><img style={{width:30 , borderRadius:30}} src={this.props.auth&&this.props.auth.avatar} alt="图片"/></span>
               </Popover>
             </div>
           </Col>

@@ -6,6 +6,22 @@
       clear: both;
     }
   }
+  .content{
+    font: small-caps 14px/ 2.1em 'microsoft yahei';
+    color: #999;
+    position: relative;
+    /* 2 times the line-height to show 2 lines */
+    height: 4.2em;
+    overflow: hidden;
+    &::after {
+      content: '...';
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      padding: 0 20px 1px 45px;
+      background: url(http://newimg88.b0.upaiyun.com/newimg88/2014/09/ellipsis_bg.png) repeat-y;
+    }
+  }
   .other {
     ul {
       li {

@@ -1,5 +1,5 @@
 import {
-  deleteArticle, editArticle, initArticleCreate, queryArticle, initArticleEdit
+  deleteArticle, editArticle, initArticleCreate, queryArticle, initArticleEdit,queryMyArticle
 } from '../services/api';
 
 export default {
@@ -8,6 +8,7 @@ export default {
     data: [],
     tags: [],
     columns: [],
+    myArticle:[]
   },
   subscriptions: {
     setup({dispatch, history}) {  // eslint-disable-line
@@ -32,6 +33,10 @@ export default {
     * initData({payload}, {call, put}) {  // eslint-disable-line
       const res = yield call(queryArticle);
       yield put({type: 'save', data: res.data});
+    },
+    * getMyArticle({payload}, {call, put}) {  // eslint-disable-line
+      const res = yield call(queryMyArticle);
+      yield put({type: 'saveMyArticle', data: res.data});
     },
     * initCreateArticle({payload}, {call, put}) {  // eslint-disable-line
       const res = yield call(initArticleCreate);
@@ -63,6 +68,12 @@ export default {
         ...state,
         data,
       };
+    },
+    saveMyArticle(state,{data}) {
+      return {
+        ...state,
+        myArticle:data
+      }
     },
     saveInitData(state, {data}) {
       return {

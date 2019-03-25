@@ -1,21 +1,7 @@
 import React, { PureComponent } from 'react';
 import { Card, List, Avatar } from 'antd';
 import {connect} from 'dva';
-import user from "../../models/user";
-const data = [
-  {
-    title: 'Ant Design Title 1',
-  },
-  {
-    title: 'Ant Design Title 2',
-  },
-  {
-    title: 'Ant Design Title 3',
-  },
-  {
-    title: 'Ant Design Title 4',
-  },
-];
+
 @connect(({user})=>({
   dynamicData:user.dynamicData
 
@@ -27,10 +13,9 @@ export default class DynamicList extends PureComponent {
     });
   }
   render() {
-    var data = [];
     this.props.dynamicData.map((item)=>{
-          console.log(item.user.avatar);
-        })
+      console.log(item.user.avatar);
+    });
     return (
       <div>
         <Card
