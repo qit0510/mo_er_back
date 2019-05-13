@@ -13,7 +13,7 @@ export default class DynamicList extends PureComponent {
     });
   }
   render() {
-    this.props.dynamicData.map((item)=>{
+    this.props.dynamicData && this.props.dynamicData.map((item)=>{
       console.log(item.user.avatar);
     });
     return (

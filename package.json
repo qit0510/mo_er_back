@@ -1,7 +1,7 @@
 {
   "private": true,
   "scripts": {
-    "start": "set PORT=9000 && roadhog server",
+    "start": "roadhog server",
     "build": "roadhog build",
     "lint": "eslint --ext .js src test",
     "lint:fix": "eslint --fix --ext .js src test",
@@ -35,6 +35,7 @@
     "eslint-plugin-react": "^7.1.0",
     "husky": "^0.12.0",
     "redbox-react": "^1.4.3",
-    "roadhog": "^2.0.0"
+    "roadhog": "^2.5.3"
   }
 }
+

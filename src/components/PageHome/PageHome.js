@@ -19,17 +19,19 @@ export default class PageHome extends PureComponent {
         {/* <img alt="用户头像" src={this.props.auth.avatar?this.props.auth.avatar:'../../assets/img/log1_black.png'} /> */}
 
 
-
-        <img alt="用户头像" src={this.props.auth.avatar?this.props.auth.avatar:logo} />
+        {
+          this.props.auth && (<img alt="用户头像" src={this.props.auth.avatar?this.props.auth.avatar:logo} />)
+        }
+        
 
       </div>
     );
     return (
       <div className={Styles.header}>
         <PageHeader
-          title={this.props.auth.name}
+          title={this.props.auth ? this.props.auth.name:'qit0510'}
           logo={extra}
-          content={this.props.auth.introduction?this.props.auth.introduction:'这个人有点懒'}
+          content={this.props.auth ? (this.props.auth.introduction?this.props.auth.introduction:'这个人有点懒'):'这个人有点懒'}
         />
       </div>
     );
